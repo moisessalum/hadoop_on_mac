@@ -6,6 +6,9 @@ Thank you for your time and interest in this repository.
 I'm a Data Engineer and I was interested in testing and installing the Hadoop ecosystem on my personal Mac to play around.
 I share this installation steps because I haven't found enough documentation to install Hadoop on Mac.
 
+## Disclaimer
+This is a work in progress. If you found any problems or inconsistencies, please let me know. I'll do my best to get this guide up and running.
+
 ## Installation
 
 ### Prerequisites
@@ -316,4 +319,32 @@ Once this issue is fixed, run Hive on your terminal to ensure everything is work
 $ hive
 
 hive > show databases;
+```
+
+### HBase
+Now we will focus on [HBase](https://hbase.apache.org/). The HBase version that will be installed is 1.3.5
+
+```bash
+$ brew update
+
+$ brew search hbase
+
+$ brew install hbase
+```
+
+Add the daemons to start and stop HBase to your configuration file for your bash shell.
+```
+alias start_hbase="/usr/local/Cellar/hbase/1.3.5/bin/start-hbase.sh" # start HBase daemons
+alias stop_hbase="/usr/local/Cellar/hbase/1.3.5/bin/stop-hbase.sh" # stop HBase daemons
+```
+
+Don't forget to source your configuration file and verify your HBase installation:
+```bash
+$ source ~/.zshrc
+
+$ start_hbase
+
+$ hbase shell
+
+hbase(main):001:0>
 ```
