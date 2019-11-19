@@ -32,7 +32,7 @@ $ /usr/libexec/java_home -V
 ```
 
 My output shows something like this:
-```bash
+```
 Matching Java Virtual Machines (4):
     13.0.1, x86_64:     "OpenJDK 13.0.1"        /Library/Java/JavaVirtualMachines/openjdk-13.0.1.jdk/Contents/Home
     11.0.1, x86_64:     "OpenJDK 11.0.1"        /Library/Java/JavaVirtualMachines/openjdk-11.0.1.jdk/Contents/Home
@@ -69,7 +69,7 @@ export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security
 As you can see, JAVA_HOME matches the Java 1.8.0_172 version I was planning to use.
 
 #### core-site.xml
-```bash
+```xml
 <configuration>
   <property>
     <name>hadoop.tmp.dir</name>
@@ -84,7 +84,7 @@ As you can see, JAVA_HOME matches the Java 1.8.0_172 version I was planning to u
 ```
 
 #### mapred-site.xml
-```bash
+```xml
 <configuration>
   <property>
     <name>mapreduce.framework.name</name>
@@ -106,7 +106,7 @@ As you can see, JAVA_HOME matches the Java 1.8.0_172 version I was planning to u
 ```
 
 #### hdfs-site.xml
-```bash
+```xml
 <configuration>
   <property>
     <name>dfs.replication</name>
@@ -116,7 +116,7 @@ As you can see, JAVA_HOME matches the Java 1.8.0_172 version I was planning to u
 ```
 
 #### yarn-site.xml
-```bash
+```xml
 <configuration>
   <property>
     <name>yarn.nodemanager.aux-services</name>
@@ -151,7 +151,7 @@ Last login: Sun Nov 17 23:46:23 2019
 ```
 
 Before we move on, set your HADOOP_HOME and the daemons to start and stop Hadoop on your configuration file for your bash shell. In my case I use [Zsh](http://www.zsh.org/) so I have to modify my ~/.zshrc file:
-```bash
+```
 alias start_hadoop="/usr/local/Cellar/hadoop/3.2.1/sbin/start-all.sh" # start Hadoop daemons
 alias stop_hadoop="/usr/local/Cellar/hadoop/3.2.1/sbin/stop-all.sh" # stop Hadoop daemons
 export HADOOP_HOME=/usr/local/Cellar/hadoop/3.2.1/libexec
@@ -201,7 +201,7 @@ The installation is performed on /usr/local/Cellar/hive/
 
 Set the HIVE_HOME on your configuration file for your bash shell. Remember I use Zsh, so I have to modify my ~/.zshrc file:
 
-```bash
+```
 export HIVE_HOME=/usr/local/Cellar/hive/3.1.2/libexec
 ```
 
@@ -217,7 +217,7 @@ $ cp hive-default.xml.template hive-site.xml
 ```
 
 On the hive-site.xml file you will have to modify or add the following lines.
-```bash
+```xml
   <property>
     <name>hive.exec.local.scratchdir</name>
     <value>/tmp/hive</value>
@@ -275,7 +275,7 @@ $ cp ~/Desktop/postgresql-42.2.8.jar /usr/local/Cellar/hive/3.1.2/libexec/lib
 ```
 
 As a sidenote, when I try to run Hive for the first time I get the following error:
-```bash
+```
 Exception in thread "main" java.lang.NoSuchMethodError: com.google.common.base.Preconditions.checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
 	at org.apache.hadoop.conf.Configuration.set(Configuration.java:1357)
 	at org.apache.hadoop.conf.Configuration.set(Configuration.java:1338)
