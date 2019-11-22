@@ -348,3 +348,57 @@ $ hbase shell
 
 hbase(main):001:0>
 ```
+
+### Kafka & Zookeeper
+It's the turn to install [Kafka](https://kafka.apache.org/). When we install Kafka through Homebrew, [Zookeeper](https://zookeeper.apache.org/) is marked as a dependency, so if you don't have it on your Mac, it will also be installed.
+
+So far we don't have installed neither Kafka nor Zookeeper, so both will be installed in this step.
+
+The current Zookeeper version is 3.4.14 and the current Kafka version is 2.3.1
+
+In this step I will print the installation logs so you can verify the installation of both Zookeeper and Kafka.
+
+```bash
+$ brew update
+
+$ brew search kafka
+
+$ brew install kafka
+```
+
+```
+==> Installing dependencies for kafka: zookeeper
+==> Installing kafka dependency: zookeeper
+==> Downloading https://homebrew.bintray.com/bottles/zookeeper-3.4.14.high_sierra.bottle.tar.gz
+Already downloaded: /Users/moisessalum/Library/Caches/Homebrew/downloads/5bbc8213010306020f819cb810b1bb8ab88a96c4c5547c335ee763cc2eed2055--zookeeper-3.4.14.high_sierra.bottle.tar.gz
+==> Pouring zookeeper-3.4.14.high_sierra.bottle.tar.gz
+==> Caveats
+To have launchd start zookeeper now and restart at login:
+  brew services start zookeeper
+Or, if you don't want/need a background service you can just run:
+  zkServer start
+==> Summary
+🍺  /usr/local/Cellar/zookeeper/3.4.14: 430 files, 36.5MB
+==> Installing kafka
+==> Downloading https://homebrew.bintray.com/bottles/kafka-2.3.1.high_sierra.bottle.tar.gz
+Already downloaded: /Users/moisessalum/Library/Caches/Homebrew/downloads/8f649f53183e76334610e57ae3a2386ccffc7df48ec520ed769e2cfcf1fc8912--kafka-2.3.1.high_sierra.bottle.tar.gz
+==> Pouring kafka-2.3.1.high_sierra.bottle.tar.gz
+==> Caveats
+To have launchd start kafka now and restart at login:
+  brew services start kafka
+Or, if you don't want/need a background service you can just run:
+  zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties
+==> Summary
+🍺  /usr/local/Cellar/kafka/2.3.1: 171 files, 59.5MB
+==> Caveats
+==> zookeeper
+To have launchd start zookeeper now and restart at login:
+  brew services start zookeeper
+Or, if you don't want/need a background service you can just run:
+  zkServer start
+==> kafka
+To have launchd start kafka now and restart at login:
+  brew services start kafka
+Or, if you don't want/need a background service you can just run:
+  zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties
+```
